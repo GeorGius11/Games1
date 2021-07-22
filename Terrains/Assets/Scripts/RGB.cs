@@ -1,16 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RGB : MonoBehaviour
 {
-    public GUIStyle _style;
-    public Color myColor;
-    void OnGUI()
+    [SerializeField] private GUIStyle _style;
+    [SerializeField] private Color _myColor;
+
+    private void OnGUI()
     {
-        myColor = RGBSlider(new Rect(10, 10, 200, 20), myColor);
+        _myColor = RGBSlider(new Rect(10, 10, 200, 20), _myColor);
     }
-    Color RGBSlider(Rect screenRect, Color rgb)
+
+    private Color RGBSlider(Rect screenRect, Color rgb)
     {
         rgb.r = LabelSlider(screenRect, rgb.r, 0.0f, 1.0f, "Red");
         screenRect.y += 20;
@@ -21,7 +21,8 @@ public class RGB : MonoBehaviour
         rgb.a = LabelSlider(screenRect, rgb.a, 0.0f, 1.0f, "Alpha");
         return rgb;
     }
-    float LabelSlider(Rect screenRect, float sliderValue, float sliderMinValue, float sliderMaxValue, string labelText)
+
+    private float LabelSlider(Rect screenRect, float sliderValue, float sliderMinValue, float sliderMaxValue, string labelText)
     {
         GUI.Label(screenRect, labelText, _style);
         screenRect.x += screenRect.width;

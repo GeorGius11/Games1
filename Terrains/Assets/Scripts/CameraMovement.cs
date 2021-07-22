@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
@@ -11,7 +9,7 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
-        _direction = new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);
+        _direction = new Vector3(Input.GetAxis("Mouse Y"), 0, 0);
         transform.Rotate((-1)*_direction.x, 0, 0);
         //_player.transform.Rotate(0, _direction.y, 0);
     }
