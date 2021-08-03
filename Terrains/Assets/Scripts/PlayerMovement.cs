@@ -20,11 +20,6 @@ public class PlayerMovement : MonoBehaviour
         _direction = transform.TransformDirection(_direction);
 
         transform.Rotate(0, Input.GetAxis("Mouse X"), 0);
-
-        //if (Input.GetButton("W"))
-        //{
-        //    _direction.z = transform.forward.z;
-        //}
     }
 
     private void FixedUpdate()
